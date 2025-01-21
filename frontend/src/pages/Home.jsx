@@ -45,7 +45,7 @@ export const Home = ({ data }) => {
 
   return (
     <>
-      <main className="flex flex-col bg-main-red">
+      <main className="flex flex-col bg-main-red laptop:w-9/12 laptop:mx-auto">
         {signedUp && <WelcomeMessage />}
         {loggedOut && <WelcomeMessage />}
         {automaticLogOut && <WelcomeMessage />}
@@ -54,7 +54,6 @@ export const Home = ({ data }) => {
         <Carousel />
         <Statements data={data["atGlim"]} />
       </main>
-      {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
       <Footer data={data["footer"]} aboveColor={"yellow"} />
     </>
   );

@@ -9,16 +9,16 @@ export const Hero = ({ data }) => {
   const { loggedIn, user } = useUserStore();
 
   return (
-    <section className="relative  min-h-[400px] max-h-full">
+    <section className="relative min-h-[400px] max-h-full">
       {!loggedIn ? (
         <>
           <img
-            className="object-cover w-full h-[543px] tablet:h-[598px] laptop:h-[810px]"
+            className="object-cover w-full h-[450px] tablet:h-[420px] laptop:h-[500px]"
             src={heroImage}
             alt="background image"
           />
 
-          <div className="absolute top-0 right-0 w-44 tablet:w-72 laptop:w-96 m-10 tablet:m-20 laptop:m-40 text-right text-white font-body">
+          <div className="absolute top-0 right-0 w-44 tablet:w-72 laptop:w-96 m-10 tablet:m-20  text-right text-white font-body">
             <p className="py-4 text-xl tablet:text-2xl laptop:text-4xl">
               {data.ctaText}
             </p>
@@ -32,7 +32,7 @@ export const Hero = ({ data }) => {
       ) : (
         <>
           <img
-            className="object-cover w-full h-[543px] tablet:h-[598px] laptop:h-[810px]"
+            className="object-cover w-full h-[450px] tablet:h-[420px] laptop:h-[600px]"
             src="splash-glim.png"
             alt="background image"
           />

@@ -1,6 +1,5 @@
 import {
   CardElement,
-  PaymentElement,
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
@@ -8,8 +7,6 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 export const useProductsStore = create(
-  /*   (stripe = useStripe()),
-  (elements = useElements()), */
   persist(
     (set, get) => ({
       productsData: {},
@@ -31,11 +28,9 @@ export const useProductsStore = create(
       setTotalPrice: (input) => set({ totalPrice: input }),
       setPriceHistory: (input) => set({ priceHistory: input }),
 
-      handlePayment: async (event, stripe, elements, product, shoppingCart, totalPrice ) => {
+      handlePayment: async (event, stripe, elements, product, shoppingCart, totalPrice) => {
         event.preventDefault();
         console.log("Handlepayment: ", product.price);
-        /* const stripe = useStripe(); 
-        const elements = useElements(); */
 
         if (!stripe || !elements) {
           console.error("Stripe.js has not loaded yet.");
@@ -53,10 +48,7 @@ export const useProductsStore = create(
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                //TODO Check how to connect to our products
                 amount: product.price * 100, // Convert price to cents
-                //   productName: product.title,
-                /*     productDescription: product.description, */
               }),
             }
           );
@@ -83,10 +75,9 @@ export const useProductsStore = create(
             if (result.paymentIntent.status === "succeeded") {
               console.log("Payment succeeded!");
               set({ paymentStatus: "Payment successful!"});
-              get().setOrderHistory(shoppingCart)
-              get().setPriceHistory(totalPrice)
+              get().setOrderHistory(shoppingCart);
+              get().setPriceHistory(totalPrice);
               get().setPaymentSuccessful(true);
-              
             } else {
               console.error(
                 "Unexpected payment status:",
@@ -100,56 +91,44 @@ export const useProductsStore = create(
         } catch (error) {
           console.error("Error during payment:", error);
           set({ paymentStatus: `Error: ${error.message}` });
-        }  finally {
+        } finally {
           set({ isLoading: false });
-          get().removeAllFromCart()
+          get().removeAllFromCart();
         }
       },
 
-      setShoppingCart: (product, quantity) => {
+      // New cart update function (setShoppingCart replaced)
+      updateShoppingCart: (product, quantity) => {
         const currentCart = get().shoppingCart;
-        const productIndex = currentCart.findIndex(
-          (item) => item.product._id === product._id
+        const productIndex = currentCart.findIndex((item) => item.product._id === product._id);
+
+        const updatedCart = productIndex >= 0 
+          ? currentCart.map((item, index) =>
+              index === productIndex
+                ? { ...item, quantity: Math.max(0, item.quantity + quantity) } // Ensure quantity doesn't go below 0
+                : item
+            )
+          : [...currentCart, { product, quantity }];
+        
+        set({
+          shoppingCart: updatedCart,
+          addedProduct: [product],
+          popupIsVisible: true,
+        });
+
+        // Recalculate total price
+        const totalPrice = updatedCart.reduce(
+          (total, item) => total + item.product.price * item.quantity,
+          0
         );
-
-        if (productIndex >= 0) {
-          // Update the quantity of the existing product in the cart
-          const updatedCart = [...currentCart];
-          updatedCart[productIndex].quantity += quantity;
-
-          // Ensure quantity doesn't go below zero
-          updatedCart[productIndex].quantity = Math.max(
-            0,
-            updatedCart[productIndex].quantity
-          );
-
-          set({
-            shoppingCart: updatedCart,
-            addedProduct: [product],
-            popupIsVisible: true,
-          });
-        } else {
-          // Add the new product to the cart
-          set({
-            shoppingCart: [...currentCart, { product, quantity }],
-            addedProduct: [product],
-            popupIsVisible: true,
-          });
-        }
-
-        // Recalculate total price and update store
-        const price = get().shoppingCart.reduce((total, item) => {
-          return total + item.product.price * item.quantity;
-        }, 0);
-        const roundedPrice = Math.ceil(price * 100) / 100; // Round up to 2 decimal places
+        const roundedPrice = Math.ceil(totalPrice * 100) / 100;
         set({ totalPrice: roundedPrice });
 
-        setTimeout(
-          () => set({ popupIsVisible: false, addedProduct: [] }),
-          10000
-        );
+        // Set timeout to hide the popup after 10 seconds
+        setTimeout(() => set({ popupIsVisible: false, addedProduct: [] }), 10000);
       },
 
+      // Cart update by product ID and quantity
       updateCart: (newQuantity, productId) => {
         const currentCart = get().shoppingCart;
         const productIndex = currentCart.findIndex(
@@ -173,23 +152,21 @@ export const useProductsStore = create(
       removeAllByIdFromCart: (productId) => {
         const currentCart = get().shoppingCart;
 
-        // Filter out all products with the specified ID
         const updatedCart = currentCart.filter(
           (item) => item.product._id !== productId
         );
 
-        // Calculate total price
+        // Recalculate total price
         const price = updatedCart.reduce((total, item) => {
           return total + item.product.price * item.quantity;
         }, 0);
-        const roundedPrice = Math.ceil(price * 100) / 100; // Round up to 2 decimal places
+        const roundedPrice = Math.ceil(price * 100) / 100;
         set({ shoppingCart: updatedCart, totalPrice: roundedPrice });
       },
 
       removeAllFromCart: () => {
         set({ shoppingCart: [], totalPrice: 0 });
       },
-    
 
       fetchProducts: async () => {
         set({ loadingProduct: true });

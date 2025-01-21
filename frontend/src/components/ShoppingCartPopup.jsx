@@ -8,7 +8,7 @@ export const ShoppingCartPopup = () => {
   return (
     <>
       {popupIsVisible && addedProduct && (
-        <div className="fixed top-4 desktop:top-20 z-30 right-4 desktop:right-10 w-3/4 tablet:w-5/12 desktop:w-3/12 h-fit bg-strong-red backdrop-blur-3xl p-4 tablet:p-6 shadow-xl text-text-light font-heading rounded-md flex flex-col  gap-2 desktop:gap-6">
+        <div className="fixed top-0 desktop:top-24 z-30 right-0 desktop:right-[12%] w-3/4 tablet:w-5/12 desktop:w-3/12 h-fit bg-strong-red backdrop-blur-3xl p-4 tablet:p-6 shadow-xl text-text-light font-heading rounded-md flex flex-col  gap-2 desktop:gap-6">
           <h3 className="text-sm laptop:text-xl">Added to cart</h3>
           <div className="flex gap-4">
             <img

@@ -1,35 +1,32 @@
 import { NavLink } from "react-router-dom";
-
 import { useProductsStore } from "../store/useProductsStore";
 
 export const ProductCard = ({ data }) => {
   const productData = data;
-  //const productLangData = langData; //Should probably be products-list-page
-  const { setShoppingCart } = useProductsStore();
-  //Change variables to accept incoming data from backend.
+  const { updateShoppingCart } = useProductsStore();
   const image = productData.image.url;
   const productName = productData.title;
   const price = `€${productData.price}`;
   const id = productData._id;
 
-  // Change variable to accept data from translation file.
   const addToCart = "Add to Cart"; //productLangData.add-to-cart
-  // Adding product to the cart
   const handleAddToCart = (e) => {
     e.preventDefault();
-    setShoppingCart(productData, 1);
+    updateShoppingCart(productData, 1);
   };
 
+  console.log(useProductsStore())
+
   return (
-    <div className="bg-strong-red m-auto w-full h-full rounded-xl pb-5">
+    <div className="bg-strong-red m-auto w-full h-full rounded-xl pb-5 laptop:hover:scale-105 hover:drop-shadow-2xl">
       <NavLink to={`/products/${id}`} aria-label="Link to Product">
         <div>
           <img className="w-full rounded-t-xl" src={image} alt="" />
         </div>
       </NavLink>
-      <div className="m-4 flex flex-col items-center h-28 text-white">
+      <div className="m-4 flex flex-col items-center tablet:h-28 text-white">
         <NavLink to={`/products/${id}`} aria-label="Link to Product">
-          <h3 className="font-heading text-xs hover:opacity-75 active:opacity-50 laptop:text-sm  ">
+          <h3 className="font-heading text-xs hover:scale-105 active:opacity-50 laptop:text-sm  ">
             {productName}
           </h3>
         </NavLink>

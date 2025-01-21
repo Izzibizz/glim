@@ -122,9 +122,9 @@ export const Navigation = ({ data }) => {
   return (
     <>
       {showWelcomePopup && <WelcomeMessage />}
-      <nav className="sticky top-0 w-full z-20">
-        <div className="grid grid-cols-3 bg-strong-red border-b-2 border-main-red border-opacity-35 backdrop-blur-xl justify-between">
-          <div className="left-nav flex tablet:ml-2">
+      <nav className="sticky top-0 w-full z-20 bg-strong-red border-b-2 border-main-red border-opacity-35 backdrop-blur-xl">
+        <div className="grid grid-cols-3  justify-between tablet:w-11/12 laptop:w-9/12 tablet:mx-auto items-center">
+          <div className="flex tablet:gap-10">
             <NavLink
               to="/about"
               className="text-white m-4 hidden laptop:block"
@@ -200,7 +200,7 @@ export const Navigation = ({ data }) => {
               </div>
             )}
           </div>
-          <div className="center-nav flex m-auto">
+          <div className="flex m-auto">
             <NavLink
               to="/"
               className="text-white"
@@ -209,7 +209,7 @@ export const Navigation = ({ data }) => {
               <img className="w-40 my-4" src={glimLogo} alt="glim logo" />
             </NavLink>
           </div>
-          <div className="right-nav flex flex-row justify-end">
+          <div className="flex flex-row justify-end tablet:gap-10">
             {loggedIn ? (
               <NavLink to={`/profile/${userId}`} aria-label="Link to Profile">
                 <img

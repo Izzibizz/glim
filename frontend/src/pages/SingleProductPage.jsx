@@ -8,13 +8,11 @@ import { MdOutlineStar } from "react-icons/md";
 import { IoIosArrowBack } from "react-icons/io";
 import { ImCross } from "react-icons/im";
 import SimilarProducts from "../components/SimilarProducts";
-/* import { NotFound } from "./NotFound"; */
 import { Footer } from "../components/Footer";
 import { ReviewForm } from "../components/ReviewForm";
 import { ShoppingCartPopup } from "../components/ShoppingCartPopup";
 import { StickyButton } from "../components/StickyButton";
-import swoopTop from "/swoops/swoop-similar-top.svg";
-import swoopBottom from "/swoops/swoop-similar-bottom.svg";
+
 
 export const SingleProductPage = () => {
   const { id } = useParams();
@@ -22,11 +20,9 @@ export const SingleProductPage = () => {
     fetchSingleProduct,
     loadingProduct,
     singleProduct,
-    shoppingCart,
-    setShoppingCart,
+    updateShoppingCart,
   } = useProductsStore();
   const { user, loggedIn } = useUserStore();
-  // const loggedIn = true;
   const [quantity, setQuantity] = useState(1);
   const [userAllergies, setUserAllergies] = useState([]);
 
@@ -48,7 +44,7 @@ export const SingleProductPage = () => {
 
   // Adding product to the cart
   const handleAddToCart = () => {
-    setShoppingCart(product, quantity);
+    updateShoppingCart(product, quantity);
   };
 
   useEffect(() => {
@@ -97,7 +93,7 @@ export const SingleProductPage = () => {
       } else {
         setRecommendedTag(false);
       }
-      console.log(isNotAllergic)
+      console.log()
     }
   }, [product, profile]);
 
@@ -120,11 +116,11 @@ export const SingleProductPage = () => {
           </div>
         ) : (
           <div className="flex flex-col">
-            <div className="w-full tablet:w-11/12 tablet:m-auto tablet:flex pb-12 desktop:w-9/12 relative">
+            <div className="w-10/12 mx-auto tablet:w-11/12 tablet:mx-auto tablet:flex pb-12 desktop:w-8/12 relative gap-4 laptop:gap-10">
               <img
                 src={product.image.url}
                 alt={product.description}
-                className="w-full tablet:w-7/12 desktop:w-5/12 object-cover aspect-square tablet:rounded-xl"
+                className="w-full tablet:w-1/2 tablet:h-1/2  desktop:w-[400px] desktop:h-[400px] object-cover aspect-square rounded-xl"
               />
               {allergyAlert.length > 0 && (
                 <div className="absolute top-10 left-0 right-0 flex justify-center w-36  items-center bg-strong-red2 text-white py-2 px-4 rounded-r-xl">
@@ -137,8 +133,8 @@ export const SingleProductPage = () => {
                 </div>
               )}
 
-              <div className="w-9/12 m-auto tablet:m-0 py-6 text-text-light tablet:pl-8 desktop:pl-16">
-                <h2 className="font-light text-lg tablet:text-xl mb-2">
+              <div className="text-text-light mt-4 tablet:mt-0">
+                <h2 className="font-light text-sm tablet:text-xl mb-2">
                   {product.brand}
                 </h2>
                 <h3 className="text-xl tablet:text-3xl mb-8">
@@ -300,7 +296,7 @@ export const SingleProductPage = () => {
               </div>
             </div>
 {/* Different position of the same content for tablet */}
-<div className="flex-col w-11/12 mx-auto hidden tablet:flex laptop:hidden ">
+<div className=" w-11/12 justify-evenly mx-auto hidden tablet:flex laptop:hidden ">
   {(!loggedIn || (loggedIn && !recommendedTag)) && (
     <>
     {loggedIn && !recommendedTag && (
@@ -315,7 +311,7 @@ export const SingleProductPage = () => {
          )}
       </div>
     )}
-    <div className="hidden tablet:flex flex-col flex-wrap w-full mb-12 gap-10 laptop:hidden text-sm">
+    <div className="hidden tablet:flex flex-wrap mb-12 gap-10 laptop:hidden text-sm">
       {product.skin?.length > 0 && (
         <div className="relative flex flex-col gap-2">
           <h4 className="text-text-light font-bold text-base">

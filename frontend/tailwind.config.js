@@ -17,6 +17,7 @@ export default {
         "main-white-transparent": "rgba(255, 253, 246, 0.7)",
 
         "main-red": "#E48d6A",
+        "second-red": "#e79c7e",
         "strong-red": "rgba(159, 36, 9, 0.41)",
         "red-burger": "rgba(193, 96, 65, 0.8)",
         "strong-red2": "#9f2409",
@@ -46,7 +47,7 @@ export default {
         tablet: "744px",
         // => @media (min-width: 640px) { ... }
 
-        laptop: "1024px",
+        laptop: "1025px",
         // => @media (min-width: 1024px) { ... }
 
         desktop: "1511px",
