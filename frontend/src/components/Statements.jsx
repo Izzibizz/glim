@@ -2,7 +2,6 @@ import glim from "/glim-logo.svg";
 import face1 from "/mockupimages/mockup-face1.png";
 import face2 from "/mockupimages/mockup-face2.png";
 import wideImage from "/mockupimages/mockup-faces.png";
-import swoopBottom from "/statement-bottom-swoop.svg";
 import swoop from "/statement-swoop.svg";
 
 export const Statements = ({ data }) => {
@@ -34,7 +33,6 @@ export const Statements = ({ data }) => {
           {data.lastLines}
         </p>
       </div>
-      <img className="w-full" src={swoopBottom} alt="Section border" />
     </div>
   );
 };

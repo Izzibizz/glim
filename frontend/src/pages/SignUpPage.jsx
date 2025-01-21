@@ -88,7 +88,7 @@ export const SignUpPage = () => {
       setActiveSection("sectiontwo");
     } else {
       if (!isPassword) {
-        alert("Make sure you use at least one capital and one number.");
+        alert("Make sure you use at least: one capital and one number, minimum length 8 characters.");
       }
       if (!isSame) {
         alert("The passwords aren't matching!");
@@ -230,12 +230,12 @@ export const SignUpPage = () => {
     }
   }, [signedUp]);
 
-  console.log("signed up", signedUp);
+  console.log("signed up", signedUp, "password", password);
 
   return (
     <>
       {activeSection === "sectionone" && (
-        <section className="bg-main-red h-full flex flex-col items-center text-text-light pb-20 tablet:pb-0 laptop:flex-row laptop:pt-20 laptop:px-36 laptop:pb-64">
+        <section className="bg-main-red h-full laptop:w-9/12 mx-auto flex flex-col items-center text-text-light pb-20 tablet:pb-0 laptop:flex-row laptop:pt-20 laptop:px-36 laptop:pb-64">
           <div className="relative w-full laptop:m-8">
             <img
               className="w-full w-screentablet:order-last laptop:rounded-3xl"
@@ -318,7 +318,7 @@ export const SignUpPage = () => {
         </section>
       )}
       {activeSection === "sectiontwo" && (
-        <section className="bg-main-red h-full flex flex-col items-center text-text-light px-10 pb-20 tablet:p-0 laptop:flex-row laptop:pt-20 laptop:px-36 laptop:pb-64">
+        <section className="bg-main-red laptop:9/12 mx-auto h-full flex flex-col items-center text-text-light px-10 pb-20 tablet:p-0 laptop:flex-row laptop:pt-20 laptop:px-36 laptop:pb-64">
           <div>
             <div className="flex flex-col items-center">
               <h2 className="text-2xl font-heading font-bold mt-10">Sign Up</h2>
@@ -449,7 +449,7 @@ export const SignUpPage = () => {
         </section>
       )}
       {activeSection === "sectionthree" && (
-        <section className="bg-light-yellow h-full flex flex-col items-center text-text-dark px-10 pb-20 tablet:px-0 laptop:items-start">
+        <section className=" h-full flex flex-col laptop:w-9/12 mx-auto bg-light-red items-center text-text-dark px-10 pb-20 tablet:px-0 laptop:items-start">
           <h2 className="text-2xl font-heading font-bold mt-20 laptop:px-36">
             Who are you?
           </h2>
@@ -635,6 +635,7 @@ export const SignUpPage = () => {
                       value={option.toLowerCase()}
                       checked={selectedAllergies.includes(option.toLowerCase())}
                       onChange={handleAllergyCheckboxChange}
+                      className="mr-2"
                     />
                     {option}
                   </label>
@@ -658,6 +659,7 @@ export const SignUpPage = () => {
                       value={option.toLowerCase()}
                       checked={selectedPros.includes(option.toLowerCase())}
                       onChange={handleProsCheckboxChange}
+                      className="mr-2"
                     />
                     {option}
                   </label>
@@ -666,14 +668,14 @@ export const SignUpPage = () => {
             </div>
             <button
               onClick={() => setActiveSection("sectionone")}
-              className="bg-bg-input h-8 w-28 self-center mt-14 rounded-3xl text-text-dark font-heading"
+              className="bg-bg-input h-8 w-28 self-center mt-14 rounded-3xl hover:drop-shadow-xl text-text-dark font-heading"
             >
               Go back
             </button>
             <button
               disabled={loadingUser}
               onClick={handleSubmit}
-              className="bg-light-orange h-8 w-40 self-center mt-6 rounded-3xl text-text-light font-heading"
+              className="bg-main-yellow h-fit w-fit p-2 px-4 self-center mt-6 rounded-3xl hover:drop-shadow-xl font-heading"
             >
               {loadingUser ? (
                 <div className="flex items-center justify-center">
@@ -693,14 +695,8 @@ export const SignUpPage = () => {
         </section>
       )}
 
-      {sectionCheck ? (
-        <img
-          className="bg-light-yellow w-full"
-          src={swoopBottom}
-          alt="Section border"
-        />
-      ) : null}
-      <Footer aboveColor={"red"} />
+     
+      <Footer />
     </>
   );
 };

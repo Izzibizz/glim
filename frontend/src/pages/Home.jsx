@@ -54,7 +54,7 @@ export const Home = ({ data }) => {
         <Carousel />
         <Statements data={data["atGlim"]} />
       </main>
-      <Footer data={data["footer"]} aboveColor={"yellow"} />
+      <Footer data={data["footer"]} />
     </>
   );
 };

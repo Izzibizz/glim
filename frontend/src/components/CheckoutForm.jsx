@@ -84,9 +84,6 @@ const CheckoutForm = ({ totalPrice }) => {
 
   const itemsToDisplay = paymentSuccessful ? orderHistory : product.items;
 
-  console.log("Payment status:", paymentStatus);
-  console.log("history", orderHistory)
-
   return (
     <>
       {!paymentSuccessful ? (
@@ -138,7 +135,7 @@ const CheckoutForm = ({ totalPrice }) => {
             </div>
           )}
         </div>
-      ) : null}
+      ) : ""}
 
       <div className="tablet:max-w-[600px] tablet:m-auto">
         <h2 className="text-2xl mt-8 mb-8 laptop:text-3xl laptop:mb-12 text-center">

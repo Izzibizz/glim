@@ -124,10 +124,10 @@ export const Navigation = ({ data }) => {
       {showWelcomePopup && <WelcomeMessage />}
       <nav className="sticky top-0 w-full z-20 bg-strong-red border-b-2 border-main-red border-opacity-35 backdrop-blur-xl">
         <div className="grid grid-cols-3  justify-between tablet:w-11/12 laptop:w-9/12 tablet:mx-auto items-center">
-          <div className="flex tablet:gap-10">
+          <div className="flex laptop:gap-10">
             <NavLink
               to="/about"
-              className="text-white m-4 hidden laptop:block"
+              className="text-white p-4 hidden laptop:block"
               aria-label="Link to About us"
             >
               <p className="font-body text-white font-extralight text-lg hidden tablet:block">
@@ -137,7 +137,7 @@ export const Navigation = ({ data }) => {
             <NavLink
               aria-label="Link to products"
               to="/products"
-              className="text-white m-4 hidden laptop:block"
+              className="text-white p-4 hidden laptop:block"
             >
               <p className="font-body text-white text-xl hidden tablet:block font-bold">
                 {data.products}
@@ -153,25 +153,25 @@ export const Navigation = ({ data }) => {
                   <img
                     src={userIcon}
                     alt="Profile"
-                    className="h-6 m-3 tablet:h-7 tablet:m-3"
+                    className="h-6 p-3 tablet:h-7"
                   />
                 </NavLink>
                 <NavLink
                   to="/products"
                   aria-label="link to products"
-                  className="hidden tablet:block laptop:hidden"
+                  className="hidden tablet:block laptop:hidden p-3"
                 >
                   <img src="/products.svg" alt="products" className="h-9 w-9 mt-2 ml-1" />
                 </NavLink>
               </>
             ) : (
               <div
-                onClick={toggleLogin}
-                className="text-white cursor-pointer laptop:hidden flex"
+                className="text-white  tablet:gap-4 cursor-pointer laptop:hidden flex"
               >
                 <img
                   src={userIcon}
                   alt="Profile"
+                  onClick={toggleLogin}
                   className="h-6 m-3 tablet:h-7 tablet:m-3"
                 />
                 <NavLink
@@ -195,7 +195,7 @@ export const Navigation = ({ data }) => {
               />
             </NavLink>
             {shoppingCart.length > 0 && (
-              <div className="tablet:hidden absolute top-1 border border-dark-red2 left-16 bg-main-white text-text-dark rounded-full w-4 h-4 flex items-center justify-center text-xs ">
+              <div className="tablet:hidden absolute top-6 border border-dark-red2 left-16 bg-main-white text-text-dark rounded-full w-4 h-4 flex items-center justify-center text-xs ">
                 <span>{totalQuantity}</span>
               </div>
             )}
@@ -209,7 +209,7 @@ export const Navigation = ({ data }) => {
               <img className="w-40 my-4" src={glimLogo} alt="glim logo" />
             </NavLink>
           </div>
-          <div className="flex flex-row justify-end tablet:gap-10">
+          <div className="flex flex-row justify-end tablet:gap-4 laptop:gap-10">
             {loggedIn ? (
               <NavLink to={`/profile/${userId}`} aria-label="Link to Profile">
                 <img
@@ -268,7 +268,6 @@ export const Navigation = ({ data }) => {
                 {loggedIn ? (
                   <NavLink
                     aria-label="Link to BurgerMenu"
-                    className="nav-link"
                     onClick={toggleBurger}
                     to={`/profile/${userId}`}
                   >
@@ -281,18 +280,16 @@ export const Navigation = ({ data }) => {
                     </p>
                     <NavLink
                       aria-label="Link to Sign Up"
-                      className="nav-link"
                       onClick={toggleBurger}
                       to="/signup"
                     >
-                      <p className="my-2">Sign up</p>
+                      <p>Sign up</p>
                     </NavLink>
                   </div>
                 )}
                 {data.burger.map((link, index) => (
                   <NavLink
                     aria-label="Link to Burger Menu"
-                    className="nav-link"
                     onClick={toggleBurger}
                     key={index}
                     to={link.link}
@@ -327,7 +324,7 @@ export const Navigation = ({ data }) => {
             className="w-2/3 tablet:w-1/3 desktop:w-3/12 my-20 rounded-lg bg-login border-main-red border-opacity-50 backdrop-blur-sm p-4 relative"
           >
             <div className="flex justify-between">
-              <h1 className="font-heading text-text-light text-2xl my-4">
+              <h1 className="font-heading text-text-light text-2xl">
                 Log In
               </h1>
               <NavLink to="/signup">
@@ -357,7 +354,6 @@ export const Navigation = ({ data }) => {
               />
               <button
                 onClick={handleLogin}
-                // disabled={loadingUser}
                 className="bg-cta-blue my-4 px-6 py-2 rounded-full hover:bg-cta-blue-hover text-text-light"
               >
                 {loadingUser ? (

@@ -18,6 +18,7 @@ export default {
 
         "main-red": "#E48d6A",
         "second-red": "#e79c7e",
+        "light-red": "#f7ded4",
         "strong-red": "rgba(159, 36, 9, 0.41)",
         "red-burger": "rgba(193, 96, 65, 0.8)",
         "strong-red2": "#9f2409",
