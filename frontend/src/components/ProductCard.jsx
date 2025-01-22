@@ -26,7 +26,7 @@ export const ProductCard = ({ data }) => {
       </NavLink>
       <div className="m-4 flex flex-col items-center h-18 tablet:h-28 text-white">
         <NavLink to={`/products/${id}`} aria-label="Link to Product">
-          <h3 className="font-heading text-[10px] hover:scale-105 active:opacity-50 laptop:text-xs overflow-hidden text-ellipsis whitespace-nowrap flex flex-col text-center">
+          <h3 className="font-heading text-[10px] hover:scale-105 active:opacity-50 overflow-hidden text-ellipsis whitespace-nowrap flex flex-col text-center">
             <span className="text-sm">{productData.brand}</span>
             {productName}
           </h3>
