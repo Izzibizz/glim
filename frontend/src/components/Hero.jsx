@@ -52,7 +52,7 @@ export const Hero = ({ data }) => {
           </div>
         </>
       )}
-      <img alt="swoop division of sections" className="absolute bottom-0 w-full min-w-screen" src={swoop} />
+      <img alt="swoop division of sections" className="absolute bottom-0 w-full" src={swoop} />
     </section>
   );
 };

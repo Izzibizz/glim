@@ -1,10 +1,7 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-
-/* import dotenv from "dotenv"; */
-
-import CheckoutForm from "./components/CheckoutForm";
-import { Navigation } from "./components/Navigation";
+import { Footer } from "./components/Footer"
+import { Header } from "./components/Header";
 import { ScrollToTop } from "./components/ScrollToTop";
 import dataEn from "./data.en.json";
 import { GlimRoutes } from "./routes/GlimRoutes";
@@ -18,9 +15,10 @@ export const App = () => {
   return (
     <>
       <ScrollToTop />
-      <div className="bg-second-red">
-        <Navigation data={data["navbar"]} />
+      <div className="bg-second-red w-screen">
+        <Header data={data["navbar"]} />
         <GlimRoutes data={data} />
+        <Footer data={data["footer"]} />
       </div>
     </>
   );

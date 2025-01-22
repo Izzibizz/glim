@@ -1,6 +1,6 @@
 import { Carousel } from "../components/Carousel";
 import { Hero } from "../components/Hero";
-import { Footer } from "../components/Footer";
+
 import { ShoppingCartPopup } from "../components/ShoppingCartPopup";
 import { ReviewCard } from "../components/ReviewCard";
 import { Statements } from "../components/Statements";
@@ -54,7 +54,7 @@ export const Home = ({ data }) => {
         <Carousel />
         <Statements data={data["atGlim"]} />
       </main>
-      <Footer data={data["footer"]} />
+      
     </>
   );
 };

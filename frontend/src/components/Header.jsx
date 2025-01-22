@@ -15,7 +15,7 @@ import { WelcomeMessage } from "./WelcomeMessage";
 
 //If signed in Sign in should display username/firstname
 
-export const Navigation = ({ data }) => {
+export const Header = ({ data }) => {
   const {
     email,
     password,
