@@ -3,9 +3,7 @@ import swoopTop from "/swoops/swoop-similar-top.svg";
 import Lottie from "lottie-react";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import animation from "../assets/Circle-loading-Animation.json";
-import { Footer } from "../components/Footer";
 import { useUserStore } from "../store/useUserStore";
 
 export const SignUpPage = () => {
@@ -235,7 +233,7 @@ export const SignUpPage = () => {
   return (
     <>
       {activeSection === "sectionone" && (
-        <section className="bg-main-red h-full laptop:w-9/12 mx-auto flex flex-col items-center text-text-light pb-20 tablet:pb-0 laptop:flex-row laptop:pt-20 laptop:px-36 laptop:pb-64">
+        <section className="bg-main-red h-full laptop:w-9/12 mx-auto flex flex-col items-center text-text-light pt-40 pb-20 tablet:pb-0 laptop:flex-row laptop:px-36 laptop:pb-64">
           <div className="relative w-full laptop:m-8">
             <img
               className="w-full w-screentablet:order-last laptop:rounded-3xl"
@@ -694,9 +692,6 @@ export const SignUpPage = () => {
           </form>
         </section>
       )}
-
-     
-      <Footer />
     </>
   );
 };

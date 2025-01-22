@@ -44,24 +44,24 @@ export const Footer = ({ providedData }) => {
       </section>
 
       <section className="bg-main-green text-text-light p-4 laptop:p-10">
-        <h2 className="font-heading text-4xl text-center">
+        <h2 className="font-heading text-2xl laptop:text-3xl text-center mb-6">
           {contact.title}
         </h2>
 
-        <div className="flex whitespace-pre text-body flex-col items-center laptop:flex-row laptop:justify-around laptop:w-2/3 laptop: m-auto gap-4 align-center">
+        <div className="flex whitespace-pre text-body flex-col items-center laptop:flex-row laptop:justify-around laptop:w-2/3 laptop: m-auto align-center">
           {contact.contactRoute.map((item, index) => (
             <div key={index} className="flex flex-col items-center w-1/5 my-6">
-              <img className="w-12" src={item.icon} alt={item.altText} />
+              <img className="w-8" src={item.icon} alt={item.altText} />
               <p className="text-center font-extralight">{item.info}</p>
             </div>
           ))}
         </div>
 
-        <div className="flex gap-8 justify-center">
+        <div className="flex gap-4 justify-center">
           {contact.socialMedia.map((item, index) => (
             <img
               key={index}
-              className="w-10 hover:opacity-75 hover:cursor-pointer active:opacity-50"
+              className="w-6 hover:opacity-75 hover:cursor-pointer active:opacity-50"
               src={item.icon}
               alt={item.altText}
             />

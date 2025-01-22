@@ -70,14 +70,14 @@ export const ReviewForm = () => {
 
   const characterLimit = () => {
     if (charCheck) {
-      return " transition-opacity duration-500 opacity-100 text-text-dark text-right";
+      return " transition-opacity duration-500 opacity-100 text-text-dark text-right ";
     } else {
       return "transition-opacity duration-500 opacity-0 text-text-dark text-right ";
     }
   };
 
   return (
-    <section className="bg-main-red w-full pt-12 laptop:pt-28">
+    <section className="bg-main-red w-full py-12 laptop:pt-28 laptop:w-9/12 mx-auto">
       {loadingProduct ? (
         <Loading />
       ) : (
@@ -96,7 +96,7 @@ export const ReviewForm = () => {
                 placeholder="Write your review here..."
                 onChange={handleMessage}
               ></textarea>
-              <div className="lower-info flex justify-between align-center my-2">
+              <div className="lower-info flex justify-between align-center">
                  <p className={characterLimit()}>{characters}/140</p>
                 <div className="flex gap-2 justify-items-center gap-12">
                 <StarRating

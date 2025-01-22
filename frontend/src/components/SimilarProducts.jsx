@@ -56,7 +56,7 @@ const SimilarProducts = ({ subcategory, currentProductId }) => {
   return (
     <>
       {isSimilarProducts ? (
-        <div className="relative">
+        <div className="relative laptop:w-9/12 mx-auto">
           <img
             className="bg-main-white w-full"
             src={swoopTop}

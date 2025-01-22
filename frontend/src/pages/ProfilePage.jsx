@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { FaUserEdit } from "react-icons/fa";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 
 import { Footer } from "../components/Footer";
@@ -26,18 +25,7 @@ export const ProfilePage = () => {
   const navigate = useNavigate();
   const [profile, setProfile] = useState(user.user);
 
-  // useEffect(() => {
-  //   // Fetch the user profile using the userId
-  //   const fetchUserProfile = async () => {
-  //     if (!user) {
-  //       navigate("/");
-  //     } else {
 
-  //     }
-  //   };
-
-  //   fetchUserProfile();
-  // }, [userId, fetchUser, navigate]);
 
   useEffect(() => {
     if (loggedOut) {
@@ -142,13 +130,13 @@ export const ProfilePage = () => {
       {loggedOut && navigate("/")}
       <button
         onClick={handleLogout}
-        className="bg-button-varm-light text-text-dark w-24 h-8 rounded-full flex justify-center items-center ml-6 desktop:ml-24 mt-20"
+        className="bg-button-varm-light text-text-dark w-24 h-8 rounded-full flex justify-center items-center absolute top-32 right-4 laptop:right-10 laptop:right-1/4"
       >
         Log out
       </button>
       <div>
-        <section className="w-full">
-          <div className="w-9/12 laptop:w-6/12 m-auto font-heading text-text-light mb-10 mt-6 flex flex-col">
+        <section className="w-full pt-32 laptop:pt-40 laptop:w-9/12 mx-auto">
+          <div className="w-9/12 laptop:w-6/12 m-auto font-heading text-text-light mb-10 flex flex-col">
             <h2 className="text-2xl laptop:text-4xl mb-6 text-center">
               {profile.firstname}
             </h2>
@@ -519,9 +507,6 @@ export const ProfilePage = () => {
           </div>
         </section>
       </div>
-
-      {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
-      <Footer aboveColor={"yellow"} />
     </>
   );
 };

@@ -3,7 +3,6 @@ import { useUserStore } from "../store/useUserStore";
 import { useEffect, useState, useMemo } from "react";
 import { ProductCard } from "../components/ProductCard";
 import { Loading } from "../components/Loading";
-import { Footer } from "../components/Footer";
 import { ShoppingCartPopup } from "../components/ShoppingCartPopup";
 import { StickyButton } from "../components/StickyButton"
 
@@ -112,7 +111,7 @@ export const ProductsPage = () => {
     <>
       {!loggedIn && <StickyButton />}
       <ShoppingCartPopup />
-      <section className="bg-main-red h-full min-h-screen w-full pt-12 laptop:pt-28">
+      <section className="bg-main-red h-full min-h-screen w-full pt-40">
         <div className="font-heading flex flex-col items-center justify-between w-11/12 m-auto mb-8 tablet:w-9/12 desktop:flex-row">
           <h2 className="text-text-light text-2xl  tablet:text-3xl laptop:text-3xl text-center mb-6 desktop:mb-0">
             {loggedIn && filterValue === "recommended"
@@ -218,8 +217,6 @@ export const ProductsPage = () => {
           </ul>
         )}
       </section>
-      {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
-      <Footer aboveColor={"red"} />
     </>
   );
 };

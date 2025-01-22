@@ -8,7 +8,6 @@ import { MdOutlineStar } from "react-icons/md";
 import { IoIosArrowBack } from "react-icons/io";
 import { ImCross } from "react-icons/im";
 import SimilarProducts from "../components/SimilarProducts";
-import { Footer } from "../components/Footer";
 import { ReviewForm } from "../components/ReviewForm";
 import { ShoppingCartPopup } from "../components/ShoppingCartPopup";
 import { StickyButton } from "../components/StickyButton";
@@ -101,7 +100,7 @@ export const SingleProductPage = () => {
     <>
       <ShoppingCartPopup />
       {!loggedIn && <StickyButton />}
-      <section className="bg-main-red pt-4 laptop:pt-12 w-full font-heading ">
+      <section className="bg-main-red pt-40 w-full font-heading laptop:w-9/12 mx-auto">
         <NavLink to="/products">
           <button className="bg-button-varm-light text-text-dark w-8 h-8 rounded-full flex justify-center items-center ml-6 desktop:ml-12 mb-8">
             <IoIosArrowBack />
@@ -399,9 +398,6 @@ export const SingleProductPage = () => {
         />
       </section>
       <ReviewForm />
-
-      {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
-      <Footer aboveColor={"red"} />
     </>
   );
 };

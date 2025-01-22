@@ -97,7 +97,7 @@ export const ShoppingCart = () => {
   return (
     <>
     {paymentSuccessful && <WelcomeMessage />}
-    <section className="bg-main-red h-full min-h-screen pt-4 pb-20 laptop:pt-12 w-full flex flex-col gap-8 ">
+    <section className="bg-main-red h-full laptop:w-9/12 mx-auto min-h-screen pt-40 pb-20 w-full flex flex-col gap-8 ">
       <NavLink to="/products">
         <button className="bg-button-varm-light text-text-dark text-xs p-2 px-3 laptop:text-sm rounded-full flex justify-center items-center ml-6 desktop:ml-12 gap-2">
           <IoIosArrowBack /> Continue shopping

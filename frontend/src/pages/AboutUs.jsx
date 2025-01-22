@@ -2,12 +2,11 @@ import izabel from "/profilePictures/izabel.jpg";
 import linda from "/profilePictures/linda.jpg";
 import martin from "/profilePictures/martin.jpg";
 
-import { Footer } from "../components/Footer";
 
 export const AboutUs = () => {
   return (
     <>
-      <div className="text-text-light w-3/4 tablet:max-w-screen-tablet m-auto">
+      <section className="text-text-light w-3/4 tablet:max-w-screen-tablet m-auto pt-40">
         <h2 className="font-heading text-2xl text-center my-8">The idea</h2>
         <p className="font-body text">
           glim was founded on the principle that finding personalized products
@@ -131,8 +130,7 @@ export const AboutUs = () => {
           </div>
         </div>
         {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
-      </div>
-      <Footer aboveColor={"red"} />
+      </section>
     </>
   );
 };
