@@ -9,7 +9,7 @@ export const Hero = ({ data }) => {
   const { loggedIn, user } = useUserStore();
 
   return (
-    <section className="relative min-h-[400px] max-h-full">
+    <section className="relative">
       {!loggedIn ? (
         <>
           <img
@@ -52,7 +52,7 @@ export const Hero = ({ data }) => {
           </div>
         </>
       )}
-      <img alt="swoop" className="absolute bottom-0 w-[120%] laptop:w-full" src={swoop} />
+      <img alt="swoop division of sections" className="absolute bottom-0 w-full min-w-screen" src={swoop} />
     </section>
   );
 };
