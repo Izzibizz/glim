@@ -122,7 +122,7 @@ export const Header = ({ data }) => {
   return (
     <>
       {showWelcomePopup && <WelcomeMessage />}
-      <nav className="sticky top-0 w-full z-20 bg-strong-red border-b-2 border-main-red border-opacity-35 backdrop-blur-xl">
+      <nav className="fixed top-0 w-full z-20 bg-strong-red border-b-2 border-main-red border-opacity-35 backdrop-blur-xl">
         <div className="grid grid-cols-3  justify-between tablet:w-11/12 laptop:w-9/12 tablet:mx-auto items-center">
           <div className="flex laptop:gap-10">
             <NavLink

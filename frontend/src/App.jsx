@@ -15,7 +15,7 @@ export const App = () => {
   return (
     <>
       <ScrollToTop />
-      <div className="bg-second-red w-screen">
+      <div className="bg-second-red">
         <Header data={data["navbar"]} />
         <GlimRoutes data={data} />
         <Footer data={data["footer"]} />
