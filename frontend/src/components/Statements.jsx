@@ -7,7 +7,7 @@ import swoop from "/statement-swoop.svg";
 export const Statements = ({ data }) => {
   return (
     <div className="relative bg-main-white text-text-dark leading-loose tablet:text-2xl">
-  <img className="w-full absolute top-0 w-screen laptop:w-full" src={swoop} alt="Section border" />
+  <img className="absolute top-0 w-screen laptop:w-full" src={swoop} alt="Section border" />
       <div className="p-6 tablet:p-10 laptop:p-20 desktop:mr-20 mt-20 tablet:mt-32 laptop:mt-40">
         <div className="flex mb-8 items-end tablet:justify-center laptop:justify-end">
 
