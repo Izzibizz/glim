@@ -193,7 +193,7 @@ export const useProductsStore = create(
       fetchSingleProduct: async (id) => {
         set({ loadingProduct: true });
 
-        const URL_singleProduct = `https://glim-wjyr.onrender.com/products${id}`;
+        const URL_singleProduct = `https://glim-wjyr.onrender.com/products/${id}`;
         try {
           const response = await fetch(URL_singleProduct, {
             method: "GET",
