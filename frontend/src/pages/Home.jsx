@@ -45,7 +45,7 @@ export const Home = ({ data }) => {
 
   return (
     <>
-      <main className="flex flex-col bg-main-red laptop:w-9/12 laptop:mx-auto">
+      <main className="flex flex-col bg-main-red laptop:w-9/12 laptop:mx-auto pt-24">
         {signedUp && <WelcomeMessage />}
         {loggedOut && <WelcomeMessage />}
         {automaticLogOut && <WelcomeMessage />}
